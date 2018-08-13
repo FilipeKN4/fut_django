@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from liga.views import index, adicionar
+from liga.views import index, adicionar, mostrar
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'^novo_time/', adicionar, name='adicionar')
+    url(r'^novo_time/', adicionar, name='adicionar'),
+    url(r'time/(?P<id>\d+)/$', mostrar, name='mostrar')
 ]

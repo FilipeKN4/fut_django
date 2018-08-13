@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from liga.forms import TimeForm, TimeModelForm
 
 from .models import Time
@@ -11,7 +11,7 @@ def index(request):
         "times": times,
     }
 
-    return render(request, "liga/index.html", context)
+    return render(request, "index.html", context)
 
 def adicionar(request):
     time_form = TimeModelForm(request.POST or None)
@@ -28,3 +28,12 @@ def adicionar(request):
     }
 
     return render(request, "novo_time.html", context)
+
+def mostrar(request, id=None):
+    time = get_object_or_404(Time, id=id)
+
+    context = {
+        "time": time,
+    }
+
+    return render(request, "time.html", context)

@@ -6,7 +6,7 @@ from django.db import models
 class Time(models.Model):
     nome = models.CharField(max_length=100)
     cidade = models.CharField(max_length=100, blank=True, null=True)
-    sigla_estado = models.CharField(max_length=2, blank=True, null=True)
+    sigla_estado = models.CharField(max_length=10)
     numero_de_torcedores = models.IntegerField(blank=True, null=True)
     numero_de_titulos = models.IntegerField(blank=True, null=True)
 

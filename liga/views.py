@@ -37,3 +37,18 @@ def mostrar(request, id=None):
     }
 
     return render(request, "time.html", context)
+
+def editar(request, id=None):
+    time = get_object_or_404(Time, id=id)
+    time_form = TimeModelForm(request.POST or None, instance=time)
+
+    if time_form.is_valid():
+        time = time_form.save(commit=False)
+        time.save()
+
+    context = {
+        "time": time,
+        "form": time_form,
+    }
+
+    return render(request, "novo_time.html", context)

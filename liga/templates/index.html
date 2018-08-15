@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index malucão</title>
+</head>
+<body>
+    <h1>Isso aqui é Brasileirão</h1>
+    {% for time in times %}    
+    {{ time.nome }}<a href="time/{{time.id}}">Mostrar</a><br>
+    {% endfor %}
+    <form method="get" action="novo_time/">
+        <input type='submit' value='criar time' />
+    </form>
+</body>
+</html>

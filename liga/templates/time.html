@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>time</title>
+</head>
+<body>
+    <h1>Meu Time</h1>
+    <span>Nome: </span>{{time.nome}}<br>
+    <span>Cidade: </span>{{time.cidade}}<br>
+    <span>Estado: </span>{{time.sigla_estado}}<br>
+    <span>Número de Torcedores: </span>{{time.numero_de_torcedores}}<br>
+    <span>Número de Títulos: </span>{{time.numero_de_titulos}}<br>
+    <form method="get" action="{% url 'index' %}">
+        <input type='submit' value='voltar' />
+    </form>
+    <form method="" action="editar/{{time.id}}">
+        <input type='submit' value='atualizar' />
+    </form>
+</body>
+</html>

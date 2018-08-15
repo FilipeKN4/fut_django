@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from liga.forms import TimeForm, TimeModelForm
 
 from .models import Time
@@ -18,10 +18,6 @@ def adicionar(request):
 
     if time_form.is_valid():
         time_form.save()
-        #time_dados = time_form.cleaned_data
-        #nome = time_dados.get("nome")
-        #sigla_estado = time_dados.get("sigla_estado")
-        #time = Time.objects.create(nome=nome, sigla_estado = sigla_estado)
 
     context = {
         "form" : time_form,
@@ -52,3 +48,8 @@ def editar(request, id=None):
     }
 
     return render(request, "novo_time.html", context)
+
+def excluir(request, id=None):
+    time = get_object_or_404(Time, id=id)
+    time.delete()
+    return redirect("index")

@@ -16,8 +16,11 @@
     <form method="get" action="{% url 'index' %}">
         <input type='submit' value='voltar' />
     </form>
-    <form method="" action="editar/{{time.id}}">
+    <form method="get" action="">
         <input type='submit' value='atualizar' />
+    </form>
+    <form method="" action="excluir">
+        <input type='submit' value='exlcuir' />
     </form>
 </body>
 </html>

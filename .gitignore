@@ -1,0 +1,4 @@
+# ignorar arquivos python cache/
+*.pyc
+# ignorar banco de dados local/
+db.sqlite3

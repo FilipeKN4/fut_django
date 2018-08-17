@@ -1,9 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect
 from liga.forms import TimeForm, TimeModelForm
 
 from .models import Time
 
 # Create your views here.
+def redirect_root(request):
+    return HttpResponseRedirect('/times/')
+
 def index(request):
     times = Time.objects.all()
 

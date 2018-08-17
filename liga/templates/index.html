@@ -9,10 +9,10 @@
 <body>
     <h1>Isso aqui é Brasileirão</h1>
     {% for time in times %}    
-    {{ time.nome }}<a href="time/{{time.id}}">Mostrar</a><br>
+    {{ time.nome }}<a href="{% url 'mostrar' time.id %}">Mostrar</a><br>
     {% endfor %}
-    <form method="get" action="novo_time/">
-        <input type='submit' value='criar time' />
+    <form method="get" action="novo_time">
+        <button type="submit">adicionar</button>
     </form>
 </body>
 </html>

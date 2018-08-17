@@ -13,14 +13,14 @@
     <span>Estado: </span>{{time.sigla_estado}}<br>
     <span>Número de Torcedores: </span>{{time.numero_de_torcedores}}<br>
     <span>Número de Títulos: </span>{{time.numero_de_titulos}}<br>
-    <form method="get" action="{% url 'index' %}">
-        <input type='submit' value='voltar' />
-    </form>
-    <form method="get" action="">
-        <input type='submit' value='atualizar' />
-    </form>
-    <form method="" action="excluir">
-        <input type='submit' value='exlcuir' />
-    </form>
+    <a href="{% url 'index' %}">
+        <button type="submit">voltar</button>
+    </a><br>
+    <a href="{% url 'adicionar' %}">
+        <button type="submit">atualizar</button>
+    </a><br>
+    <a href="{% url 'excluir' time.id %}">
+        <button type="submit">excluir</button>
+    </a>
 </body>
 </html>

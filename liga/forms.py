@@ -20,6 +20,3 @@ class TimeModelForm(forms.ModelForm):
             raise forms.ValidationError("Cara, somente siglas de estados! Vlw")
         return sigla_estado
 
-class UserLoginForm(forms.Form):
-    usuario = forms.CharField()
-    senha = forms.CharField(widget=forms.PasswordInput)

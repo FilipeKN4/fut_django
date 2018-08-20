@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from liga import urls as liga_urls
+from contas import urls as contas_urls
 from liga.views import redirect_root
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', redirect_root),
-    url(r'^times/', include(liga_urls)),    
+    url(r'^times/', include(liga_urls)),
+    url(r'^login/', include(contas_urls)),    
 ]

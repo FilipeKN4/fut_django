@@ -18,10 +18,13 @@ def index(request):
     return render(request, "index.html", context)
 
 def adicionar(request):
+    times = Time.objects.all()
     time_form = TimeModelForm(request.POST or None)
 
     if time_form.is_valid():
         time_form.save()
+        return render(request, "index.html", {"times":times})
+
 
     context = {
         "form" : time_form,

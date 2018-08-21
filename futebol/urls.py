@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from liga import urls as liga_urls
 from contas import urls as contas_urls
-from liga.views import redirect_root
+from contas.views import redirect_root
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

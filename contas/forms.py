@@ -22,10 +22,23 @@ class UserLoginForm(forms.Form):
         return super(UserLoginForm, self).clean(*args, **kwargs)
 
 class UserRegisterForm(forms.ModelForm):
+    email = forms.EmailField()
+    senha = forms.CharField(widget=forms.PasswordInput)
+    confirmar_senha = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = User
-        campos = {
-            'nome_usuario',
-            'email',
-            'senha'
-        }
+        fields = [
+            'username',
+            'senha',
+            'confirmar_senha'
+        ]
+
+    def clean_confirmar_senha(self):
+        print(self.cleaned_data)
+        senha = self.cleaned_data.get('senha')
+        confirmar_senha = self.cleaned_data.get('confirmar_senha')
+        print(confirmar_senha)
+        if senha != confirmar_senha:
+            raise forms.ValidationError('Senhas diferentes')
+        
+        return senha

@@ -5,14 +5,13 @@ from liga.forms import TimeForm, TimeModelForm
 from .models import Time
 
 # Create your views here.
-def redirect_root(request):
-    return HttpResponseRedirect('/times/')
-
 def index(request):
+    usuario = request.user
     times = Time.objects.all()
 
     context = {
         "times": times,
+        "usuario" : usuario,
     }
 
     return render(request, "index.html", context)

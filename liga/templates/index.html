@@ -7,13 +7,16 @@
     <title>index malucão</title>
 </head>
 <body>
+    <p></p>
     <p>Bem vindo, diretor {{ usuario }}</p>
     <h1>Isso aqui é Brasileirão</h1>
     {% for time in times %}    
     {{ time.nome }}<a href="{% url 'mostrar' time.id %}">Mostrar</a><br>
     {% endfor %}
+    {% if request.user.is_authenticated %}
     <form method="get" action="novo_time">
         <button type="submit">adicionar</button>
     </form>
+    {% endif %}
 </body>
 </html>

@@ -16,11 +16,13 @@
     <a href="{% url 'index' %}">
         <button type="submit">voltar</button>
     </a><br>
+     {% if request.user.is_authenticated %}
     <a href="{% url 'adicionar' %}">
         <button type="submit">atualizar</button>
     </a><br>
     <a href="{% url 'excluir' time.id %}">
         <button type="submit">excluir</button>
     </a>
+     {% endif %}
 </body>
 </html>

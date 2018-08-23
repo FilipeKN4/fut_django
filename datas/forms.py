@@ -3,12 +3,12 @@ from django import forms
 from .models import Data
 
 class DataForm(forms.Form):
-    data = forms.CharField()
+    data = forms.DateField()
 
 class DataModelForm(forms.ModelForm):
     class Meta:
         model = Data
-        fields = ["data"]
+        fields = ["data_string"]
         widgets = {
             'data': forms.TextInput(attrs={'class': 'form-control date'})
         }

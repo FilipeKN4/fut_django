@@ -5,4 +5,8 @@ from django.db import models
 
 # Create your models here.
 class Data(models.Model):
-    data = models.CharField(max_length=100, default=' ')
+    data_string = models.CharField(max_length=100, default=' ')
+    data = models.DateField(blank=True, null=True)
+
+    def __unicode__(self):
+        return self.data

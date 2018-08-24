@@ -19,12 +19,11 @@ def adicionar(request):
     data_form = DataModelForm(request.POST or None)
 
     if data_form.is_valid():
-        print(data_form.cleaned_data.get("data"))
-        datas = data_form.cleaned_data.get("data").split(',')
+        print(data_form.cleaned_data.get("data_string"))
+        datas = data_form.cleaned_data.get("data_string").split(',')
         print(datas)
         for data in datas:
             data_split_bar = data.split('/')
-
             data1 = int(data_split_bar[0])
             data2 = int(data_split_bar[1])
             data3 = int(data_split_bar[2])

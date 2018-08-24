@@ -10,7 +10,7 @@ class DataModelForm(forms.ModelForm):
         model = Data
         fields = ["data_string"]
         widgets = {
-            'data': forms.TextInput(attrs={'class': 'form-control date'})
+            'data_string': forms.TextInput(attrs={'class': 'form-control date'})
         }
     
     def clean(self):

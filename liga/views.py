@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from liga.forms import TimeForm, TimeModelForm
 
@@ -16,6 +17,7 @@ def index(request):
 
     return render(request, "index.html", context)
 
+@login_required #(login_url='/login/')
 def adicionar(request):
     times = Time.objects.all()
     time_form = TimeModelForm(request.POST or None)
@@ -31,6 +33,7 @@ def adicionar(request):
 
     return render(request, "novo_time.html", context)
 
+
 def mostrar(request, id=None):
     time = get_object_or_404(Time, id=id)
 
@@ -40,6 +43,7 @@ def mostrar(request, id=None):
 
     return render(request, "time.html", context)
 
+@login_required #(login_url='/login/')
 def editar(request, id=None):
     time = get_object_or_404(Time, id=id)
     time_form = TimeModelForm(request.POST or None, instance=time)
@@ -55,6 +59,7 @@ def editar(request, id=None):
 
     return render(request, "novo_time.html", context)
 
+@login_required(login_url='/login/')
 def excluir(request, id=None):
     time = get_object_or_404(Time, id=id)
     time.delete()

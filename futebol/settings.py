@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_URL = '/login/'
 ROOT_URLCONF = 'futebol.urls'
 
 TEMPLATES = [

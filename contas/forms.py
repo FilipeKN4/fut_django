@@ -30,7 +30,8 @@ class UserRegisterForm(forms.ModelForm):
         fields = [
             'username',
             'senha',
-            'confirmar_senha'
+            'confirmar_senha',
+            'email'
         ]
 
     def clean_confirmar_senha(self):

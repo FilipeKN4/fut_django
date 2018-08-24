@@ -3,6 +3,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from .forms import UserLoginForm, UserRegisterForm
 
 # Create your views here.
+
 def redirect_root(request):
     return HttpResponseRedirect('/login/')
 
@@ -47,5 +48,6 @@ def registrar(request):
 
     return render(request, "registrar.html", context)
 
-def logout(request):
-    return
+def sair(request):
+    logout(request)
+    return HttpResponseRedirect('/login/')

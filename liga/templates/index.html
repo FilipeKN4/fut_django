@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+</head>
+<body>
+    <p></p>
+    <p>Bem vindo, diretor(a) {{ usuario }}</p>
+    <h1>Isso aqui é Brasileirão</h1>
+    {% for time in times %}    
+    {{ time.nome }}<a href="{% url 'mostrar' time.id %}">Mostrar</a><br>
+    {% endfor %}
+    {% if request.user.is_authenticated %}
+    <form method="get" action="novo_time">
+        <button type="submit">adicionar</button>
+    </form>
+    <a href="/login/sair/"> 
+        <button type="submit">sair</button>
+    </a>
+    {% endif %}
+
+</body>
+</html>

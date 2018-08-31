@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>time</title>
+</head>
+<body>
+    <h1>Meu Time</h1>
+    <span>Nome: </span>{{time.nome}}<br>
+    <span>Cidade: </span>{{time.cidade}}<br>
+    <span>Estado: </span>{{time.sigla_estado}}<br>
+    <span>Número de Torcedores: </span>{{time.numero_de_torcedores}}<br>
+    <span>Número de Títulos: </span>{{time.numero_de_titulos}}<br>
+    <a href="{% url 'index' %}">
+        <button type="submit">voltar</button>
+    </a><br>
+     {% if request.user.is_authenticated %}
+    <a href="{% url 'adicionar' %}">
+        <button type="submit">atualizar</button>
+    </a><br>
+    <a href="{% url 'excluir' time.id %}">
+        <button type="submit">excluir</button>
+    </a>
+     {% endif %}
+</body>
+</html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <p></p>
-    <p>Bem vindo, diretor {{ usuario }}</p>
+    <p>Bem vindo, diretor(a) {{ usuario }}</p>
     <h1>Isso aqui é Brasileirão</h1>
     {% for time in times %}    
     {{ time.nome }}<a href="{% url 'mostrar' time.id %}">Mostrar</a><br>
